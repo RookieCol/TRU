@@ -52,7 +52,7 @@ export default function BorrowCard(props: Props): JSX.Element {
 
 		try {
 			setIsLoading(true)
-			const parsedAmount: bigint = BigInt(amount)
+			const parsedAmount: bigint = BigInt(parseFloat(amount) * 10 ** 6)
 
 			const approveTx = await usdcContract.approve(
 				await aavePoolContract.getAddress(),
